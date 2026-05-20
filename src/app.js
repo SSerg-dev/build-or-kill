@@ -1,3 +1,5 @@
+import { resultToMarkdown } from "./export/markdownExport.js";
+
 const STORAGE_KEY = "build-or-kill:last-result";
 
 const form = document.querySelector("#idea-form");
@@ -71,10 +73,11 @@ function renderResult() {
   }
 
   if (state.lastResult.result_type === "final_result") {
-    resultContent.innerHTML = `
-      <p class="placeholder-result"><strong>${escapeHtml(state.lastResult.verdict)}</strong>
-      (${escapeHtml(state.lastResult.confidence_score)}/100): ${escapeHtml(state.lastResult.verdict_reason)}</p>
-    `;
+    if (!isRenderableFinalResult(state.lastResult)) {
+      showError("The analysis result was incomplete and cannot be rendered.");
+      return;
+    }
+    resultContent.innerHTML = finalResultHtml(state.lastResult);
   } else {
     resultContent.innerHTML = `
       <p class="placeholder-result">${escapeHtml(state.lastResult.summary || "Previous validation result restored locally.")}</p>
@@ -82,6 +85,71 @@ function renderResult() {
   }
   resultPanel.hidden = false;
   staleBadge.hidden = !state.stale;
+}
+
+function finalResultHtml(result) {
+  const sections = [
+    ["Key Strengths", result.key_strengths],
+    ["Key Risks", result.key_risks],
+    ["MVP Scope", result.mvp_scope],
+    ["Validation Experiments", result.validation_experiments],
+    ["Recommended Next Actions", result.recommended_next_actions]
+  ];
+
+  return `
+    <article class="final-result">
+      <section class="verdict-block verdict-${escapeHtml(result.verdict.toLowerCase())}" aria-label="Verdict">
+        <div>
+          <p class="verdict-label">Verdict</p>
+          <h3>${escapeHtml(result.verdict)}</h3>
+        </div>
+        <div class="confidence-score">
+          <span>${escapeHtml(result.confidence_score)}</span>
+          <small>/100 confidence</small>
+        </div>
+        <p class="verdict-reason">${escapeHtml(result.verdict_reason)}</p>
+        <p class="advisory-disclaimer">${escapeHtml(result.advisory_disclaimer)}</p>
+      </section>
+
+      <section class="role-grid" aria-label="Role analyses">
+        ${result.role_analyses.map(roleCardHtml).join("")}
+      </section>
+
+      <div class="ordered-sections">
+        ${sections.map(([title, items]) => resultSectionHtml(title, items)).join("")}
+      </div>
+
+      <button class="secondary-action" type="button" id="export-markdown">Export Markdown</button>
+    </article>
+  `;
+}
+
+function roleCardHtml(role) {
+  return `
+    <article class="role-card">
+      <h3>${escapeHtml(role.role)}</h3>
+      <p>${escapeHtml(role.focus)}</p>
+      <ul>${role.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>
+    </article>
+  `;
+}
+
+function resultSectionHtml(title, items) {
+  return `
+    <section class="result-section">
+      <h3>${escapeHtml(title)}</h3>
+      <ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+    </section>
+  `;
+}
+
+function isRenderableFinalResult(result) {
+  return ["BUILD", "PIVOT", "KILL"].includes(result.verdict)
+    && Number.isInteger(result.confidence_score)
+    && Array.isArray(result.role_analyses)
+    && result.role_analyses.length === 5
+    && ["key_strengths", "key_risks", "mvp_scope", "validation_experiments", "recommended_next_actions"]
+      .every((key) => Array.isArray(result[key]) && result[key].length > 0);
 }
 
 function persistLastResult(result, inputSnapshot) {
@@ -202,6 +270,18 @@ function escapeHtml(value) {
 form.addEventListener("input", markResultStaleIfNeeded);
 
 clarificationQuestions.addEventListener("input", scheduleClarificationSubmit);
+
+resultContent.addEventListener("click", (event) => {
+  if (event.target?.id !== "export-markdown" || !state.lastResult) return;
+  const markdown = resultToMarkdown(state.lastResult);
+  const blob = new Blob([markdown], { type: "text/markdown" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "build-or-kill-result.md";
+  link.click();
+  URL.revokeObjectURL(url);
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();

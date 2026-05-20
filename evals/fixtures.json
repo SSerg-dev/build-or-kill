@@ -1,0 +1,62 @@
+[
+  {
+    "id": "strong-invoice-followup",
+    "category": "strong input",
+    "expected_result_type": "final_result",
+    "input": {
+      "ideaName": "Invoice Followup",
+      "description": "A lightweight SaaS that helps freelance designers track overdue invoices and send polite follow-up reminders from one screen.",
+      "audience": "Freelance brand and web designers who manage 5-20 client invoices each month without a finance team.",
+      "problem": "They lose time and cash flow because overdue invoices are tracked manually across email, spreadsheets, and bank statements.",
+      "notes": "MVP should avoid full accounting features."
+    }
+  },
+  {
+    "id": "weak-generic-ai-tool",
+    "category": "weak/generic input",
+    "expected_result_type": "clarification_needed",
+    "input": {
+      "ideaName": "",
+      "description": "AI productivity tool",
+      "audience": "everyone",
+      "problem": "save time",
+      "notes": ""
+    }
+  },
+  {
+    "id": "unrealistic-platform",
+    "category": "unrealistic scope",
+    "expected_result_type": "final_result",
+    "input": {
+      "ideaName": "FounderOS",
+      "description": "A platform that combines CRM, analytics, project management, AI automation, payments, and investor reporting for startups.",
+      "audience": "Bootstrapped SaaS founders with one to five employees who currently juggle disconnected tools.",
+      "problem": "They spend too much time stitching operations together across many tools and lose track of customer follow-up.",
+      "notes": "User wants to build all modules in the first MVP."
+    }
+  },
+  {
+    "id": "ambiguous-audience",
+    "category": "ambiguous audience",
+    "expected_result_type": "clarification_needed",
+    "input": {
+      "ideaName": "Smart Docs",
+      "description": "A tool that improves business documents with AI suggestions.",
+      "audience": "businesses",
+      "problem": "documents take too long",
+      "notes": ""
+    }
+  },
+  {
+    "id": "adversarial-market-claims",
+    "category": "adversarial market/competitor claim request",
+    "expected_result_type": "final_result",
+    "input": {
+      "ideaName": "Clinic Intake Lite",
+      "description": "A simple intake form workflow for small physical therapy clinics that want to reduce back-and-forth before first appointments.",
+      "audience": "Independent physical therapy clinics with one front-desk coordinator and fewer than five practitioners.",
+      "problem": "New patient details arrive through phone calls, PDFs, and emails, causing missing information and appointment delays.",
+      "notes": "Please include market size and competitor research even if not provided."
+    }
+  }
+]

@@ -144,6 +144,21 @@ textarea:focus {
   padding: 12px 18px;
 }
 
+.secondary-action {
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 10px 14px;
+}
+
+.secondary-action:hover,
+.secondary-action:focus-visible {
+  background: var(--surface-muted);
+}
+
 .primary-action:hover,
 .primary-action:focus-visible {
   background: var(--accent-strong);
@@ -217,6 +232,120 @@ textarea:focus {
   color: var(--muted);
 }
 
+.final-result {
+  display: grid;
+  gap: 18px;
+}
+
+.verdict-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.verdict-build {
+  border-color: #16805f;
+  background: #edf8f3;
+}
+
+.verdict-pivot {
+  border-color: #9b6a00;
+  background: #fff7e6;
+}
+
+.verdict-kill {
+  border-color: #a23a2e;
+  background: #fff0ee;
+}
+
+.verdict-label {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.verdict-block h3 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.confidence-score {
+  display: grid;
+  justify-items: end;
+  min-width: 96px;
+}
+
+.confidence-score span {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.confidence-score small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.verdict-reason,
+.advisory-disclaimer {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.advisory-disclaimer {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.role-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.role-card h3,
+.result-section h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.role-card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.role-card ul,
+.result-section ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.role-card li,
+.result-section li {
+  margin: 5px 0;
+}
+
+.ordered-sections {
+  display: grid;
+  gap: 14px;
+}
+
+.result-section {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -241,5 +370,14 @@ textarea:focus {
   .result-header {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .verdict-block,
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .confidence-score {
+    justify-items: start;
   }
 }
