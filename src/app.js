@@ -14,7 +14,11 @@ const state = {
   status: "idle",
   lastResult: null,
   resultInputSnapshot: null,
-  stale: false
+  stale: false,
+  activeInput: null,
+  clarificationQuestions: [],
+  clarificationTimer: null,
+  requestInFlight: false
 };
 
 const requiredFields = [
@@ -54,6 +58,11 @@ function showValidation(message) {
   setStatus("validation-error");
 }
 
+function showError(message) {
+  validationMessage.textContent = message;
+  setStatus("error");
+}
+
 function renderResult() {
   if (!state.lastResult) {
     resultContent.innerHTML = "";
@@ -61,9 +70,16 @@ function renderResult() {
     return;
   }
 
-  resultContent.innerHTML = `
-    <p class="placeholder-result">${escapeHtml(state.lastResult.summary)}</p>
-  `;
+  if (state.lastResult.result_type === "final_result") {
+    resultContent.innerHTML = `
+      <p class="placeholder-result"><strong>${escapeHtml(state.lastResult.verdict)}</strong>
+      (${escapeHtml(state.lastResult.confidence_score)}/100): ${escapeHtml(state.lastResult.verdict_reason)}</p>
+    `;
+  } else {
+    resultContent.innerHTML = `
+      <p class="placeholder-result">${escapeHtml(state.lastResult.summary || "Previous validation result restored locally.")}</p>
+    `;
+  }
   resultPanel.hidden = false;
   staleBadge.hidden = !state.stale;
 }
@@ -104,10 +120,74 @@ function markResultStaleIfNeeded() {
   }
 }
 
-function showClarificationPlaceholder() {
-  clarificationReason.textContent = "The analysis needs a little more context before it can give a useful verdict.";
-  clarificationQuestions.innerHTML = "";
+function renderClarification(result) {
+  state.clarificationQuestions = result.questions;
+  clarificationReason.textContent = result.reason;
+  clarificationQuestions.innerHTML = result.questions
+    .map((question, index) => `
+      <label class="field clarification-field">
+        <span>${escapeHtml(question)}</span>
+        <input type="text" data-clarification-index="${index}" autocomplete="off">
+      </label>
+    `)
+    .join("");
   setStatus("clarification");
+}
+
+function scheduleClarificationSubmit() {
+  clearTimeout(state.clarificationTimer);
+  state.clarificationTimer = setTimeout(() => {
+    const answers = readClarificationAnswers();
+    if (answers.some((answer) => !answer)) {
+      showValidation("Fill every clarification answer before final analysis.");
+      clarificationPanel.hidden = false;
+      return;
+    }
+    submitAnalysis({ input: state.activeInput, clarificationAnswers: answers, mode: "final" });
+  }, 500);
+}
+
+function readClarificationAnswers() {
+  return Array.from(clarificationQuestions.querySelectorAll("[data-clarification-index]"))
+    .map((field) => field.value.trim());
+}
+
+async function submitAnalysis({ input, clarificationAnswers = [], mode = "initial" }) {
+  if (state.requestInFlight) return;
+  state.requestInFlight = true;
+  validationMessage.hidden = true;
+  setStatus("analyzing");
+
+  try {
+    const response = await fetch("/api/analyze", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ input, clarificationAnswers, mode })
+    });
+    const payload = await response.json();
+
+    if (!response.ok || payload.error) {
+      throw new Error(payload.error || "Analysis failed.");
+    }
+
+    if (payload.result_type === "clarification_needed") {
+      renderClarification(payload);
+      return;
+    }
+
+    state.lastResult = payload;
+    state.resultInputSnapshot = input;
+    state.stale = false;
+    state.clarificationQuestions = [];
+    clarificationQuestions.innerHTML = "";
+    persistLastResult(payload, input);
+    renderResult();
+    setStatus("result");
+  } catch (error) {
+    showError(error.message || "Analysis failed. Try again.");
+  } finally {
+    state.requestInFlight = false;
+  }
 }
 
 function escapeHtml(value) {
@@ -121,7 +201,9 @@ function escapeHtml(value) {
 
 form.addEventListener("input", markResultStaleIfNeeded);
 
-form.addEventListener("submit", (event) => {
+clarificationQuestions.addEventListener("input", scheduleClarificationSubmit);
+
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const input = readInput();
   const missing = validateInput(input);
@@ -131,18 +213,9 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  validationMessage.hidden = true;
-  showClarificationPlaceholder();
-
-  const demoResult = {
-    summary: "Plan 01-01 UI shell is ready. AI analysis will be connected in Plan 01-02."
-  };
-  state.lastResult = demoResult;
-  state.resultInputSnapshot = input;
-  state.stale = false;
-  persistLastResult(demoResult, input);
-  renderResult();
-  setStatus("result");
+  state.activeInput = input;
+  clarificationQuestions.innerHTML = "";
+  await submitAnalysis({ input });
 });
 
 restoreLastResult();
