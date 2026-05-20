@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build or Kill</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro" aria-labelledby="app-title">
+        <p class="eyebrow">MVP validation</p>
+        <h1 id="app-title">Build or Kill</h1>
+        <p class="intro-copy">
+          Pressure-test a product idea before you spend serious time building it.
+          Describe the idea, audience, and painful problem; the app will ask for
+          missing context or return a verdict-focused validation brief.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="Validation workspace">
+        <form class="idea-form" id="idea-form" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Idea name <small>optional</small></span>
+              <input id="idea-name" name="ideaName" type="text" autocomplete="off">
+            </label>
+
+            <label class="field field-wide">
+              <span>Product description</span>
+              <textarea id="description" name="description" rows="4" required></textarea>
+            </label>
+
+            <label class="field">
+              <span>Target audience</span>
+              <textarea id="audience" name="audience" rows="3" required></textarea>
+            </label>
+
+            <label class="field">
+              <span>Main pain or problem</span>
+              <textarea id="problem" name="problem" rows="3" required></textarea>
+            </label>
+
+            <label class="field field-wide">
+              <span>Optional notes <small>competition, pricing, channels</small></span>
+              <textarea id="notes" name="notes" rows="3"></textarea>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-action" type="submit">Analyze idea</button>
+            <p class="form-hint">Required: description, audience, and problem.</p>
+          </div>
+        </form>
+
+        <div class="validation-message" id="validation-message" role="alert" hidden></div>
+
+        <section class="clarification-panel" id="clarification-panel" aria-live="polite" hidden>
+          <h2>Clarification needed</h2>
+          <p id="clarification-reason"></p>
+          <div id="clarification-questions"></div>
+        </section>
+
+        <section class="loading-panel" id="loading-panel" aria-live="polite" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Analyzing validation signals...</p>
+        </section>
+
+        <section class="result-panel" id="result-panel" aria-live="polite" hidden>
+          <div class="result-header">
+            <h2>Last validation result</h2>
+            <span class="stale-badge" id="stale-badge" hidden>Stale result</span>
+          </div>
+          <div id="result-content"></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

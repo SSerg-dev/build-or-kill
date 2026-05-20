@@ -1,0 +1,11 @@
+{
+  "name": "build-or-kill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "check": "node server/ai/contractChecks.js"
+  }
+}
