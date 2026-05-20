@@ -7,11 +7,11 @@
 
 ### Idea Intake
 
-- [ ] **INTAKE-01**: User can submit a startup or SaaS idea.
-- [ ] **INTAKE-02**: System requires product description.
-- [ ] **INTAKE-03**: System requires target audience.
-- [ ] **INTAKE-04**: System requires main pain/problem.
-- [ ] **INTAKE-05**: System may allow optional idea name and additional notes.
+- [x] **INTAKE-01**: User can submit a startup or SaaS idea.
+- [x] **INTAKE-02**: System requires product description.
+- [x] **INTAKE-03**: System requires target audience.
+- [x] **INTAKE-04**: System requires main pain/problem.
+- [x] **INTAKE-05**: System may allow optional idea name and additional notes.
 
 ### Clarification
 
@@ -41,8 +41,8 @@
 
 ### MVP Interface
 
-- [ ] **UI-01**: Landing section explains the product with validation-focused messaging.
-- [ ] **UI-02**: Product form contains optional idea name, product description, target audience, main pain/problem, and optional notes.
+- [x] **UI-01**: Landing section explains the product with validation-focused messaging.
+- [x] **UI-02**: Product form contains optional idea name, product description, target audience, main pain/problem, and optional notes.
 - [ ] **UI-03**: Result UI includes loading state, role cards, final verdict, confidence score, MVP recommendations, risks, and validation recommendations.
 - [ ] **UI-04**: User can export results to Markdown.
 
@@ -51,7 +51,7 @@
 - [ ] **REL-01**: Application has basic error handling.
 - [ ] **REL-02**: Application handles structured AI output safely.
 - [ ] **REL-03**: Application supports mock/demo fallback mode.
-- [ ] **REL-04**: Application feels fast, responsive, and lightweight.
+- [x] **REL-04**: Application feels fast, responsive, and lightweight.
 
 ## v2 Requirements
 
@@ -75,11 +75,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INTAKE-01 | Phase 1 | Pending |
-| INTAKE-02 | Phase 1 | Pending |
-| INTAKE-03 | Phase 1 | Pending |
-| INTAKE-04 | Phase 1 | Pending |
-| INTAKE-05 | Phase 1 | Pending |
+| INTAKE-01 | Phase 1 | Complete |
+| INTAKE-02 | Phase 1 | Complete |
+| INTAKE-03 | Phase 1 | Complete |
+| INTAKE-04 | Phase 1 | Complete |
+| INTAKE-05 | Phase 1 | Complete |
 | CLAR-01 | Phase 1 | Pending |
 | CLAR-02 | Phase 1 | Pending |
 | CLAR-03 | Phase 1 | Pending |
@@ -97,14 +97,14 @@
 | QUAL-03 | Phase 1 | Pending |
 | QUAL-04 | Phase 1 | Pending |
 | QUAL-05 | Phase 1 | Pending |
-| UI-01 | Phase 1 | Pending |
-| UI-02 | Phase 1 | Pending |
+| UI-01 | Phase 1 | Complete |
+| UI-02 | Phase 1 | Complete |
 | UI-03 | Phase 1 | Pending |
 | UI-04 | Phase 1 | Pending |
 | REL-01 | Phase 1 | Pending |
 | REL-02 | Phase 1 | Pending |
 | REL-03 | Phase 1 | Pending |
-| REL-04 | Phase 1 | Pending |
+| REL-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 30 total

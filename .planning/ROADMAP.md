@@ -35,7 +35,7 @@ Build the MVP validation workflow for Build or Kill: users submit a SaaS idea, t
 Plans:
 **Wave 1**
 
-- [ ] 01-01: Native one-page UI shell
+- [x] 01-01: Native one-page UI shell
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -52,4 +52,4 @@ Phases execute in numeric order.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. MVP Validation App | 0/3 | Planned | - |
+| 1. MVP Validation App | 1/3 | In Progress | - |
