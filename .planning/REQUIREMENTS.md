@@ -15,29 +15,29 @@
 
 ### Clarification
 
-- [ ] **CLAR-01**: Weak or incomplete input does not immediately produce a final verdict.
-- [ ] **CLAR-02**: Weak or incomplete input triggers 2-3 clarification questions.
-- [ ] **CLAR-03**: After clarification, the system may generate a final verdict.
+- [x] **CLAR-01**: Weak or incomplete input does not immediately produce a final verdict.
+- [x] **CLAR-02**: Weak or incomplete input triggers 2-3 clarification questions.
+- [x] **CLAR-03**: After clarification, the system may generate a final verdict.
 
 ### AI Advisory Result
 
-- [ ] **AI-01**: Result includes exactly one verdict: BUILD, PIVOT, or KILL.
-- [ ] **AI-02**: Result includes confidence score from 0-100.
-- [ ] **AI-03**: Result includes verdict reason.
-- [ ] **AI-04**: Result includes all five role analyses: Product Strategist, CTO, Growth Marketer, Skeptic, and Investor / Business Reviewer.
-- [ ] **AI-05**: Result includes key strengths.
-- [ ] **AI-06**: Result includes key risks.
-- [ ] **AI-07**: Result includes MVP scope.
-- [ ] **AI-08**: Result includes validation experiments.
-- [ ] **AI-09**: Result includes recommended next actions.
+- [x] **AI-01**: Result includes exactly one verdict: BUILD, PIVOT, or KILL.
+- [x] **AI-02**: Result includes confidence score from 0-100.
+- [x] **AI-03**: Result includes verdict reason.
+- [x] **AI-04**: Result includes all five role analyses: Product Strategist, CTO, Growth Marketer, Skeptic, and Investor / Business Reviewer.
+- [x] **AI-05**: Result includes key strengths.
+- [x] **AI-06**: Result includes key risks.
+- [x] **AI-07**: Result includes MVP scope.
+- [x] **AI-08**: Result includes validation experiments.
+- [x] **AI-09**: Result includes recommended next actions.
 
 ### Quality And Safety
 
-- [ ] **QUAL-01**: Result is specific, actionable, concise, structured, and non-generic.
-- [ ] **QUAL-02**: Result is based only on provided input.
-- [ ] **QUAL-03**: AI does not guarantee business success.
-- [ ] **QUAL-04**: AI does not invent market data or pretend to perform competitor research.
-- [ ] **QUAL-05**: AI output remains advisory and does not replace real customer validation.
+- [x] **QUAL-01**: Result is specific, actionable, concise, structured, and non-generic.
+- [x] **QUAL-02**: Result is based only on provided input.
+- [x] **QUAL-03**: AI does not guarantee business success.
+- [x] **QUAL-04**: AI does not invent market data or pretend to perform competitor research.
+- [x] **QUAL-05**: AI output remains advisory and does not replace real customer validation.
 
 ### MVP Interface
 
@@ -48,9 +48,9 @@
 
 ### Reliability
 
-- [ ] **REL-01**: Application has basic error handling.
-- [ ] **REL-02**: Application handles structured AI output safely.
-- [ ] **REL-03**: Application supports mock/demo fallback mode.
+- [x] **REL-01**: Application has basic error handling.
+- [x] **REL-02**: Application handles structured AI output safely.
+- [x] **REL-03**: Application supports mock/demo fallback mode.
 - [x] **REL-04**: Application feels fast, responsive, and lightweight.
 
 ## v2 Requirements
@@ -80,30 +80,30 @@
 | INTAKE-03 | Phase 1 | Complete |
 | INTAKE-04 | Phase 1 | Complete |
 | INTAKE-05 | Phase 1 | Complete |
-| CLAR-01 | Phase 1 | Pending |
-| CLAR-02 | Phase 1 | Pending |
-| CLAR-03 | Phase 1 | Pending |
-| AI-01 | Phase 1 | Pending |
-| AI-02 | Phase 1 | Pending |
-| AI-03 | Phase 1 | Pending |
-| AI-04 | Phase 1 | Pending |
-| AI-05 | Phase 1 | Pending |
-| AI-06 | Phase 1 | Pending |
-| AI-07 | Phase 1 | Pending |
-| AI-08 | Phase 1 | Pending |
-| AI-09 | Phase 1 | Pending |
-| QUAL-01 | Phase 1 | Pending |
-| QUAL-02 | Phase 1 | Pending |
-| QUAL-03 | Phase 1 | Pending |
-| QUAL-04 | Phase 1 | Pending |
-| QUAL-05 | Phase 1 | Pending |
+| CLAR-01 | Phase 1 | Complete |
+| CLAR-02 | Phase 1 | Complete |
+| CLAR-03 | Phase 1 | Complete |
+| AI-01 | Phase 1 | Complete |
+| AI-02 | Phase 1 | Complete |
+| AI-03 | Phase 1 | Complete |
+| AI-04 | Phase 1 | Complete |
+| AI-05 | Phase 1 | Complete |
+| AI-06 | Phase 1 | Complete |
+| AI-07 | Phase 1 | Complete |
+| AI-08 | Phase 1 | Complete |
+| AI-09 | Phase 1 | Complete |
+| QUAL-01 | Phase 1 | Complete |
+| QUAL-02 | Phase 1 | Complete |
+| QUAL-03 | Phase 1 | Complete |
+| QUAL-04 | Phase 1 | Complete |
+| QUAL-05 | Phase 1 | Complete |
 | UI-01 | Phase 1 | Complete |
 | UI-02 | Phase 1 | Complete |
 | UI-03 | Phase 1 | Pending |
 | UI-04 | Phase 1 | Pending |
-| REL-01 | Phase 1 | Pending |
-| REL-02 | Phase 1 | Pending |
-| REL-03 | Phase 1 | Pending |
+| REL-01 | Phase 1 | Complete |
+| REL-02 | Phase 1 | Complete |
+| REL-03 | Phase 1 | Complete |
 | REL-04 | Phase 1 | Complete |
 
 **Coverage:**

@@ -39,7 +39,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 01-02: AI adapter, schema, clarification, and mock fallback
+- [x] 01-02: AI adapter, schema, clarification, and mock fallback
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
@@ -52,4 +52,4 @@ Phases execute in numeric order.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. MVP Validation App | 1/3 | In Progress | - |
+| 1. MVP Validation App | 2/3 | In Progress | - |
