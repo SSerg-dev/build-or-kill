@@ -1,0 +1,116 @@
+# Requirements: Build or Kill
+
+**Defined:** 2026-05-20
+**Core Value:** Help users answer "Should I build this idea at all?" through fast, structured MVP validation.
+
+## v1 Requirements
+
+### Idea Intake
+
+- [ ] **INTAKE-01**: User can submit a startup or SaaS idea.
+- [ ] **INTAKE-02**: System requires product description.
+- [ ] **INTAKE-03**: System requires target audience.
+- [ ] **INTAKE-04**: System requires main pain/problem.
+- [ ] **INTAKE-05**: System may allow optional idea name and additional notes.
+
+### Clarification
+
+- [ ] **CLAR-01**: Weak or incomplete input does not immediately produce a final verdict.
+- [ ] **CLAR-02**: Weak or incomplete input triggers 2-3 clarification questions.
+- [ ] **CLAR-03**: After clarification, the system may generate a final verdict.
+
+### AI Advisory Result
+
+- [ ] **AI-01**: Result includes exactly one verdict: BUILD, PIVOT, or KILL.
+- [ ] **AI-02**: Result includes confidence score from 0-100.
+- [ ] **AI-03**: Result includes verdict reason.
+- [ ] **AI-04**: Result includes all five role analyses: Product Strategist, CTO, Growth Marketer, Skeptic, and Investor / Business Reviewer.
+- [ ] **AI-05**: Result includes key strengths.
+- [ ] **AI-06**: Result includes key risks.
+- [ ] **AI-07**: Result includes MVP scope.
+- [ ] **AI-08**: Result includes validation experiments.
+- [ ] **AI-09**: Result includes recommended next actions.
+
+### Quality And Safety
+
+- [ ] **QUAL-01**: Result is specific, actionable, concise, structured, and non-generic.
+- [ ] **QUAL-02**: Result is based only on provided input.
+- [ ] **QUAL-03**: AI does not guarantee business success.
+- [ ] **QUAL-04**: AI does not invent market data or pretend to perform competitor research.
+- [ ] **QUAL-05**: AI output remains advisory and does not replace real customer validation.
+
+### MVP Interface
+
+- [ ] **UI-01**: Landing section explains the product with validation-focused messaging.
+- [ ] **UI-02**: Product form contains optional idea name, product description, target audience, main pain/problem, and optional notes.
+- [ ] **UI-03**: Result UI includes loading state, role cards, final verdict, confidence score, MVP recommendations, risks, and validation recommendations.
+- [ ] **UI-04**: User can export results to Markdown.
+
+### Reliability
+
+- [ ] **REL-01**: Application has basic error handling.
+- [ ] **REL-02**: Application handles structured AI output safely.
+- [ ] **REL-03**: Application supports mock/demo fallback mode.
+- [ ] **REL-04**: Application feels fast, responsive, and lightweight.
+
+## v2 Requirements
+
+(None defined in the source SPEC.)
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Authentication | Excluded from MVP |
+| Payments | Excluded from MVP |
+| Team accounts | Excluded from MVP |
+| Complex dashboards | Excluded from MVP |
+| Admin panels | Excluded from MVP |
+| Market scraping | Excluded from MVP and conflicts with output restrictions |
+| Competitor scraping | Excluded from MVP and conflicts with output restrictions |
+| Multi-language support | Excluded from MVP |
+| Generic chatbot behavior | Anti-feature; product must stay structured and validation-focused |
+
+## Traceability
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| INTAKE-01 | Phase 1 | Pending |
+| INTAKE-02 | Phase 1 | Pending |
+| INTAKE-03 | Phase 1 | Pending |
+| INTAKE-04 | Phase 1 | Pending |
+| INTAKE-05 | Phase 1 | Pending |
+| CLAR-01 | Phase 1 | Pending |
+| CLAR-02 | Phase 1 | Pending |
+| CLAR-03 | Phase 1 | Pending |
+| AI-01 | Phase 1 | Pending |
+| AI-02 | Phase 1 | Pending |
+| AI-03 | Phase 1 | Pending |
+| AI-04 | Phase 1 | Pending |
+| AI-05 | Phase 1 | Pending |
+| AI-06 | Phase 1 | Pending |
+| AI-07 | Phase 1 | Pending |
+| AI-08 | Phase 1 | Pending |
+| AI-09 | Phase 1 | Pending |
+| QUAL-01 | Phase 1 | Pending |
+| QUAL-02 | Phase 1 | Pending |
+| QUAL-03 | Phase 1 | Pending |
+| QUAL-04 | Phase 1 | Pending |
+| QUAL-05 | Phase 1 | Pending |
+| UI-01 | Phase 1 | Pending |
+| UI-02 | Phase 1 | Pending |
+| UI-03 | Phase 1 | Pending |
+| UI-04 | Phase 1 | Pending |
+| REL-01 | Phase 1 | Pending |
+| REL-02 | Phase 1 | Pending |
+| REL-03 | Phase 1 | Pending |
+| REL-04 | Phase 1 | Pending |
+
+**Coverage:**
+- v1 requirements: 30 total
+- Mapped to phases: 30
+- Unmapped: 0
+
+---
+*Requirements defined: 2026-05-20*
+*Last updated: 2026-05-20 after bootstrapping from docs/specs/SPEC.md*
