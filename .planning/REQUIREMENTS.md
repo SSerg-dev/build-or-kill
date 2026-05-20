@@ -43,8 +43,8 @@
 
 - [x] **UI-01**: Landing section explains the product with validation-focused messaging.
 - [x] **UI-02**: Product form contains optional idea name, product description, target audience, main pain/problem, and optional notes.
-- [ ] **UI-03**: Result UI includes loading state, role cards, final verdict, confidence score, MVP recommendations, risks, and validation recommendations.
-- [ ] **UI-04**: User can export results to Markdown.
+- [x] **UI-03**: Result UI includes loading state, role cards, final verdict, confidence score, MVP recommendations, risks, and validation recommendations.
+- [x] **UI-04**: User can export results to Markdown.
 
 ### Reliability
 
@@ -99,8 +99,8 @@
 | QUAL-05 | Phase 1 | Complete |
 | UI-01 | Phase 1 | Complete |
 | UI-02 | Phase 1 | Complete |
-| UI-03 | Phase 1 | Pending |
-| UI-04 | Phase 1 | Pending |
+| UI-03 | Phase 1 | Complete |
+| UI-04 | Phase 1 | Complete |
 | REL-01 | Phase 1 | Complete |
 | REL-02 | Phase 1 | Complete |
 | REL-03 | Phase 1 | Complete |

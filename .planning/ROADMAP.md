@@ -11,7 +11,7 @@ Build the MVP validation workflow for Build or Kill: users submit a SaaS idea, t
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions marked with INSERTED
 
-- [ ] **Phase 1: MVP Validation App** - Build the complete lightweight idea validation workflow from intake through Markdown export.
+- [x] **Phase 1: MVP Validation App** - Build the complete lightweight idea validation workflow from intake through Markdown export.
 
 ## Phase Details
 
@@ -43,7 +43,7 @@ Plans:
 
 **Wave 3** *(blocked on Wave 2 completion)*
 
-- [ ] 01-03: Result rendering, Markdown export, and eval checks
+- [x] 01-03: Result rendering, Markdown export, and eval checks
 
 ## Progress
 
@@ -52,4 +52,4 @@ Phases execute in numeric order.
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. MVP Validation App | 2/3 | In Progress | - |
+| 1. MVP Validation App | 3/3 | Complete | 2026-05-20 |
