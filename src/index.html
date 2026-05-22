@@ -9,8 +9,16 @@
   <body>
     <main class="app-shell">
       <section class="intro" aria-labelledby="app-title">
-        <p class="eyebrow">MVP validation</p>
-        <h1 id="app-title">Build or Kill</h1>
+        <div class="intro-header">
+          <div>
+            <p class="eyebrow">MVP validation</p>
+            <h1 id="app-title">Build or Kill</h1>
+          </div>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <span class="theme-icon theme-icon--light" aria-hidden="true">☀️</span>
+            <span class="theme-icon theme-icon--dark" aria-hidden="true">🌙</span>
+          </button>
+        </div>
         <p class="intro-copy">
           Pressure-test a product idea before you spend serious time building it.
           Describe the idea, audience, and painful problem; the app will ask for
