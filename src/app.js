@@ -1,6 +1,7 @@
 import { resultToMarkdown } from "./export/markdownExport.js";
 
 const STORAGE_KEY = "build-or-kill:last-result";
+const THEME_KEY = "build-or-kill:theme";
 
 const form = document.querySelector("#idea-form");
 const validationMessage = document.querySelector("#validation-message");
@@ -266,6 +267,24 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  const next = isDark ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem(THEME_KEY, next);
+}
+
+initTheme();
+
+document.querySelector("#theme-toggle").addEventListener("click", toggleTheme);
 
 form.addEventListener("input", markResultStaleIfNeeded);
 
